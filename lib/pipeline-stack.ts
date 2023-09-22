@@ -30,7 +30,7 @@ export class CdkCiCdPipelineStack extends cdk.Stack {
                       'npm install -g aws-cdk'
                   ],
                   commands: [
-                      'npm ci',
+                      'npm install --omit=dev',
                       'npm run build',
                       'npx cdk synth'
                   ]
