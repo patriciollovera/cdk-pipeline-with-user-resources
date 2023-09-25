@@ -27,7 +27,8 @@ export class CdkCiCdPipelineStack extends cdk.Stack {
           synth: new CodeBuildStep('SynthStep', {
                   input: CodePipelineSource.codeCommit(repo, 'master'),
                   installCommands: [
-                      'npm install -g aws-cdk'
+                      'npm install -g aws-cdk',
+                      'npm install typescript@latest -g'
                   ],
                   commands: [
                       'npm ci',
