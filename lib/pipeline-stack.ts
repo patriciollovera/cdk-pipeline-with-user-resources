@@ -32,7 +32,7 @@ export class CdkCiCdPipelineStack extends cdk.Stack {
                       'tsc --init'
                   ],
                   commands: [
-                      'npm ci',
+                      'npm install --omit=dev',
                       'npm run build',
                       'npx cdk synth'
                   ]
