@@ -3,6 +3,8 @@ import { Construct } from 'constructs';
 import * as codecommit from 'aws-cdk-lib/aws-codecommit';
 import { userstack } from './stacks/user.resources';
 import {CodeBuildStep, CodePipeline, CodePipelineSource} from "aws-cdk-lib/pipelines";
+import { TrainingPipelineStage } from './pipeline-stage';
+
 
 export class CdkCiCdPipelineStack extends cdk.Stack {
 
@@ -39,6 +41,9 @@ export class CdkCiCdPipelineStack extends cdk.Stack {
               }
           )
         });
+
+        const deploy = new TrainingPipelineStage(this, 'Deploy');
+        const deployStage = pipeline.addStage(deploy);
 
 
     }
